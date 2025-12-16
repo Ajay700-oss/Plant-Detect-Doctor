@@ -13,7 +13,7 @@
     <div class="hero-content">
         <h1>CROP DISEASE DETECTION SYSTEM</h1>
         <p>Advanced AI-powered plant health analysis for better crop management</p>
-        <a href="/detect" class="hero-btn">Detect Plant Disease</a>
+        <a href="#detect" class="hero-btn">Detect Plant Disease</a>
     </div>
 </section>
 
@@ -147,53 +147,68 @@ Ensure good hilling practices to prevent tuber exposure and infection.</p>
     <div class="diseases-overlay">
         <h2>Plant Diseases Database</h2>
 
-        <div class="disease-grid">
+        <!-- SLIDER WRAPPER -->
+        <div class="disease-wrapper">
 
-            <div class="disease-card">
-                <h3>Late Blight (Tomato)</h3>
-                <p><b>Symptoms:</b> Dark, water-soaked spots on leaves and stems.</p>
-                <p><b>Prevention:</b> Avoid overhead watering; ensure good air circulation.</p>
-                <p><b>Supplements:</b> Copper fungicide, Organic neem oil.</p>
+            <!-- LEFT BUTTON -->
+            <button class="nav-btn left" onclick="scrollDisease(-1)">&#10094;</button>
+
+            <!-- SLIDER -->
+            <div class="disease-slider" id="diseaseSlider">
+                <div class="disease-grid">
+
+                    <div class="disease-card">
+                        <h3>Late Blight (Tomato)</h3>
+                        <p><b>Symptoms:</b> Dark, water-soaked spots on leaves and stems.</p>
+                        <p><b>Prevention:</b> Avoid overhead watering; ensure good air circulation.</p>
+                        <p><b>Supplements:</b> Copper fungicide, Organic neem oil.</p>
+                    </div>
+
+                    <div class="disease-card">
+                        <h3>Potato Scab (Potato)</h3>
+                        <p><b>Symptoms:</b> Rough, corky lesions on tuber surfaces.</p>
+                        <p><b>Prevention:</b> Maintain acidic soil (pH &lt; 5.2); crop rotation.</p>
+                        <p><b>Supplements:</b> Sulfur soil amendment, Acidifying fertilizers.</p>
+                    </div>
+
+                    <div class="disease-card">
+                        <h3>Common Rust (Corn)</h3>
+                        <p><b>Symptoms:</b> Reddish-orange pustules on leaf surfaces.</p>
+                        <p><b>Prevention:</b> Resistant varieties; avoid dense stands.</p>
+                        <p><b>Supplements:</b> Propiconazole fungicide, Foliar nutrients.</p>
+                    </div>
+
+                    <div class="disease-card">
+                        <h3>Leaf Rust (Wheat)</h3>
+                        <p><b>Symptoms:</b> Orange-brown pustules on leaves; yield loss possible.</p>
+                        <p><b>Prevention:</b> Resistant varieties and crop rotation.</p>
+                        <p><b>Supplements:</b> Triazole fungicides, Balanced NPK.</p>
+                    </div>
+
+                    <div class="disease-card">
+                        <h3>Apple Scab (Apple)</h3>
+                        <p><b>Symptoms:</b> Olive-green to black spots on leaves and fruit.</p>
+                        <p><b>Prevention:</b> Remove fallen leaves; prune for air circulation.</p>
+                        <p><b>Supplements:</b> Preventive copper sprays, Myclobutanil.</p>
+                    </div>
+
+                    <div class="disease-card">
+                        <h3>Downy Mildew (Grape)</h3>
+                        <p><b>Symptoms:</b> Yellow oily spots; white downy growth underside.</p>
+                        <p><b>Prevention:</b> Good canopy management; fungicide schedule.</p>
+                        <p><b>Supplements:</b> Copper-based fungicide, Organic sulfur.</p>
+                    </div>
+
+                </div>
             </div>
 
-            <div class="disease-card">
-                <h3>Potato Scab (Potato)</h3>
-                <p><b>Symptoms:</b> Rough, corky lesions on tuber surfaces.</p>
-                <p><b>Prevention:</b> Maintain acidic soil (pH &lt; 5.2); crop rotation.</p>
-                <p><b>Supplements:</b> Sulfur soil amendment, Acidifying fertilizers.</p>
-            </div>
-
-            <div class="disease-card">
-                <h3>Common Rust (Corn)</h3>
-                <p><b>Symptoms:</b> Reddish-orange pustules on leaf surfaces.</p>
-                <p><b>Prevention:</b> Resistant varieties; avoid dense stands.</p>
-                <p><b>Supplements:</b> Propiconazole fungicide, Foliar nutrients.</p>
-            </div>
-
-            <div class="disease-card">
-                <h3>Leaf Rust (Wheat)</h3>
-                <p><b>Symptoms:</b> Orange-brown pustules on leaves; yield loss possible.</p>
-                <p><b>Prevention:</b> Resistant varieties and crop rotation.</p>
-                <p><b>Supplements:</b> Triazole fungicides, Balanced NPK.</p>
-            </div>
-
-            <div class="disease-card">
-                <h3>Apple Scab (Apple)</h3>
-                <p><b>Symptoms:</b> Olive-green to black spots on leaves and fruit.</p>
-                <p><b>Prevention:</b> Remove fallen leaves; prune for air circulation.</p>
-                <p><b>Supplements:</b> Preventive copper sprays, Myclobutanil.</p>
-            </div>
-
-            <div class="disease-card">
-                <h3>Downy Mildew (Grape)</h3>
-                <p><b>Symptoms:</b> Yellow oily spots; white downy growth underside.</p>
-                <p><b>Prevention:</b> Good canopy management; fungicide schedule.</p>
-                <p><b>Supplements:</b> Copper-based fungicide, Organic sulfur.</p>
-            </div>
+            <!-- RIGHT BUTTON -->
+            <button class="nav-btn right" onclick="scrollDisease(1)">&#10095;</button>
 
         </div>
     </div>
 </section>
+
 <!-- ABOUT SECTION -->
 <!-- ABOUT SECTION -->
 <section class="about" id="about">
@@ -223,18 +238,137 @@ Ensure good hilling practices to prevent tuber exposure and infection.</p>
     </div>
 </section>
 
+<section id="detect" class="min-h-screen"
+style="
+background: linear-gradient(
+    rgba(255,255,255,0.35),
+    rgba(255,255,255,0.35)
+),
+url('{{ url_for('static', filename='assets/hero.png') }}');
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+">
+
+<div class="pt-24 flex items-center justify-center px-6 py-16">
+    <div class="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-3xl detect-card">
+
+
+        <h1 class="text-4xl font-extrabold text-green-700 text-center mb-2">
+            🌿 FarmCheck AI
+        </h1>
+
+        <p class="text-center text-gray-600 mb-8">
+            Upload a leaf image to detect plant disease
+        </p>
+
+        <form id="uploadForm" class="space-y-4">
+            <input type="file"
+                   id="imageInput"
+                   name="file"
+                   accept="image/*"
+                   required
+                   class="block w-full border border-gray-300 rounded-lg p-2">
+
+            <button type="submit"
+                    class="w-full bg-green-600 text-white py-3 rounded-lg font-semibold hover:bg-green-700 transition">
+                Detect Disease
+            </button>
+        </form>
+
+        <div id="result" class="mt-8 hidden">
+            <h2 class="text-2xl font-bold text-green-700 mb-2">Result</h2>
+            <p><b>Disease:</b> <span id="diagnosis"></span></p>
+            <p><b>Confidence:</b> <span id="confidence"></span></p>
+            <p class="mt-2 font-semibold">Recommendation:</p>
+            <p id="recommendation" class="text-gray-700"></p>
+        </div>
+
+        <div id="error" class="mt-6 text-red-600 hidden"></div>
+
+    </div>
+</div>
+</section>
+
+<script>
+const form = document.getElementById("uploadForm");
+
+if (form) {
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const fileInput = document.getElementById("imageInput");
+        const formData = new FormData();
+        formData.append("file", fileInput.files[0]);
+
+        try {
+            const response = await fetch("/predict", {
+                method: "POST",
+                body: formData
+            });
+
+            const data = await response.json();
+            if (!data.success) throw data.error;
+
+            document.getElementById("result").classList.remove("hidden");
+            document.getElementById("diagnosis").innerText = data.diagnosis;
+            document.getElementById("confidence").innerText = data.confidence;
+            document.getElementById("recommendation").innerText = data.recommendation;
+
+        } catch (err) {
+            document.getElementById("error").classList.remove("hidden");
+            document.getElementById("error").innerText =
+                "Prediction failed. Check server console.";
+        }
+    });
+}
+</script>
+
+
 <!-- NAVBAR -->
 <nav class="navbar">
     <div class="nav-logo">🌱 FarmDoctor</div>
+
     <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#crops">Crops</a></li>
         <li><a href="#diseases">Diseases</a></li>
         <li><a href="#dashboard">Dashboard</a></li>
         <li><a href="#about">About</a></li>
-        <li><a href="/detect" class="text-green-700 font-semibold">Detect</a></li>
+
+        <!-- Detect Button -->
+        <li>
+           <a href="#detect">Detect</a>
+
+        </li>
     </ul>
 </nav>
+
+
+<script>
+let scrollIndex = 0;
+
+function scrollDisease(direction) {
+    const slider = document.getElementById("diseaseSlider");
+    const cardWidth = slider.querySelector(".disease-card").offsetWidth + 25;
+
+    scrollIndex += direction * cardWidth;
+
+    // Prevent over-scrolling
+    scrollIndex = Math.max(0, scrollIndex);
+    scrollIndex = Math.min(
+        scrollIndex,
+        slider.scrollWidth - slider.clientWidth
+    );
+
+    slider.scrollTo({
+        left: scrollIndex,
+        behavior: "smooth"
+    });
+}
+</script>
+
+
 
 
 </body>
