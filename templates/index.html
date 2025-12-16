@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crop Disease Detection System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero" id="home">
+    <div class="hero-content">
+        <h1>CROP DISEASE DETECTION SYSTEM</h1>
+        <p>Advanced AI-powered plant health analysis for better crop management</p>
+        <a href="/detect" class="hero-btn">Detect Plant Disease</a>
+    </div>
+</section>
+
+<!-- CROPS SECTION -->
+<!-- CROPS SECTION -->
+<section class="crops" id="crops">
+    <div class="crops-overlay">
+        <h2>Supported Crops</h2>
+
+        <div class="crop-grid">
+
+            <!-- TOMATO -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="{{ url_for('static', filename='assets/tomato.png') }}" alt="Tomato">
+                        <h3>Tomato</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Tomato</h3>
+                        <p><b>Diseases:</b> Blight, Wilt, Mosaic</p>
+                        <p><b>Season:</b> Summer</p>
+                        <p><b>Climate:</b> Warm</p>
+                        <p><b>Treatment Methods:</b> Apply appropriate broad-spectrum or systemic pesticide (if disease is known to be vector-borne).
+                        Isolate and immediately remove all affected plant parts to prevent spread.Use fungicides targeting the specific pathogen (e.g., Copper or Mancozeb).</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- POTATO -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="{{ url_for('static', filename='assets/potato.png') }}" alt="Potato">
+                        <h3>Potato</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Potato</h3>
+                        <p><b>Diseases:</b> Late Blight, Scab</p>
+                        <p><b>Season:</b> Winter</p>
+                        <p><b>Climate:</b> Cool</p>
+                        <p><b>Treatment Methods</b> For Late Blight, apply protective fungicides (e.g., Chlorothalonil or Mancozeb) before symptoms appear.
+For Scab, maintain an acidic soil pH (below 5.2) and practice crop rotation.
+Ensure good hilling practices to prevent tuber exposure and infection.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CORN -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="{{ url_for('static', filename='assets/corn.png') }}" alt="Corn">
+                        <h3>Corn</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Corn</h3>
+                        <p><b>Diseases:</b> Rust, Smut</p>
+                        <p><b>Season:</b> Monsoon</p>
+                        <p><b>Climate:</b> Warm</p>
+                        <p><b>Treatment Methods:</b>Plant rust-resistant corn varieties to reduce the risk of infection.
+  Apply fungicides (e.g., Triazoles) early if rust is detected before it spreads widely.
+  For Smut, sanitation is key; remove and destroy galls before they rupture.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- WHEAT -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="{{ url_for('static', filename='assets/wheat.png') }}" alt="Wheat">
+                        <h3>Wheat</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Wheat</h3>
+                        <p><b>Diseases:</b> Rust, Bunt</p>
+                        <p><b>Season:</b> Winter</p>
+                        <p><b>Climate:</b> Cool</p>
+                        <p><b>Treatment Methods:</b> Use certified, fungicide-treated seeds to control seed-borne diseases like Bunt.
+ Select wheat varieties known to be resistant to the locally prevalent Rust strains.
+ Apply foliar fungicides if Rust severity reaches critical threshold</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- APPLE -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="{{ url_for('static', filename='assets/apple.png') }}" alt="Apple">
+                        <h3>Apple</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Apple</h3>
+                        <p><b>Diseases:</b> Scab, Fire Blight</p>
+                        <p><b>Season:</b> Autumn</p>
+                        <p><b>Climate:</b> Cold</p>
+                        <p><b>Treatment Methods:</b> For Scab, apply protective fungicide sprays early in the season (e.g., Myclobutanil).
+ For Fire Blight, prune out infected branches immediately, cutting well below the visible damage.
+ Apply copper or streptomycin sprays during bloom to prevent Fire Blight spread.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GRAPE -->
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <img src="{{ url_for('static', filename='assets/grape.png') }}" alt="Grape">                       
+                        <h3>Grape</h3>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Grape</h3>
+                        <p><b>Diseases:</b> Downy Mildew</p>
+                        <p><b>Season:</b> Summer</p>
+                        <p><b>Climate:</b> Moderate</p>
+                        <p><b>Treatment Methods:</b> Ensure good canopy management (pruning, training) to maximize air circulation and reduce humidity.
+ Apply copper-based fungicides or other systemic fungicides as a preventative measure.
+ Remove infected leaves and shoots to reduce the amount of disease-causing inoculum.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- PLANT DISEASES DATABASE -->
+<section class="diseases" id="diseases">
+    <div class="diseases-overlay">
+        <h2>Plant Diseases Database</h2>
+
+        <div class="disease-grid">
+
+            <div class="disease-card">
+                <h3>Late Blight (Tomato)</h3>
+                <p><b>Symptoms:</b> Dark, water-soaked spots on leaves and stems.</p>
+                <p><b>Prevention:</b> Avoid overhead watering; ensure good air circulation.</p>
+                <p><b>Supplements:</b> Copper fungicide, Organic neem oil.</p>
+            </div>
+
+            <div class="disease-card">
+                <h3>Potato Scab (Potato)</h3>
+                <p><b>Symptoms:</b> Rough, corky lesions on tuber surfaces.</p>
+                <p><b>Prevention:</b> Maintain acidic soil (pH &lt; 5.2); crop rotation.</p>
+                <p><b>Supplements:</b> Sulfur soil amendment, Acidifying fertilizers.</p>
+            </div>
+
+            <div class="disease-card">
+                <h3>Common Rust (Corn)</h3>
+                <p><b>Symptoms:</b> Reddish-orange pustules on leaf surfaces.</p>
+                <p><b>Prevention:</b> Resistant varieties; avoid dense stands.</p>
+                <p><b>Supplements:</b> Propiconazole fungicide, Foliar nutrients.</p>
+            </div>
+
+            <div class="disease-card">
+                <h3>Leaf Rust (Wheat)</h3>
+                <p><b>Symptoms:</b> Orange-brown pustules on leaves; yield loss possible.</p>
+                <p><b>Prevention:</b> Resistant varieties and crop rotation.</p>
+                <p><b>Supplements:</b> Triazole fungicides, Balanced NPK.</p>
+            </div>
+
+            <div class="disease-card">
+                <h3>Apple Scab (Apple)</h3>
+                <p><b>Symptoms:</b> Olive-green to black spots on leaves and fruit.</p>
+                <p><b>Prevention:</b> Remove fallen leaves; prune for air circulation.</p>
+                <p><b>Supplements:</b> Preventive copper sprays, Myclobutanil.</p>
+            </div>
+
+            <div class="disease-card">
+                <h3>Downy Mildew (Grape)</h3>
+                <p><b>Symptoms:</b> Yellow oily spots; white downy growth underside.</p>
+                <p><b>Prevention:</b> Good canopy management; fungicide schedule.</p>
+                <p><b>Supplements:</b> Copper-based fungicide, Organic sulfur.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- ABOUT SECTION -->
+<!-- ABOUT SECTION -->
+<section class="about" id="about">
+    <div class="about-content">
+        <h2>About the PlantCare System</h2>
+        <p>
+            The PlantCare system operates as a sophisticated, dedicated AI-powered diagnostic tool engineered to provide crucial support to farmers and agricultural specialists by bridging the gap between field observation and high-tech analysis. Our core function centers on delivering rapid and accurate identification of common crop diseases. This precision is achieved through the systematic analysis of uploaded leaf images utilizing a state-of-the-art, trained Machine Learning model, most often a Convolutional Neural Network (CNN), which excels at processing visual data The model has been meticulously trained on an extensive, curated dataset encompassing thousands of images of healthy, nutrient-deficient, and pathogen-infected plant samples, allowing it to discern subtle visual patterns indicative of specific diseases like blight, rust, or mildew. Once the initial image processing successfully detects and classifies a disease, the system instantaneously triggers a secondary function: delivering a specific, targeted treatment and pesticide recommendation
+        </p>
+        
+    </div>
+</section>
+
+<!-- POWER BI DASHBOARD SECTION -->
+<section class="powerbi" id="dashboard">
+    <div class="powerbi-overlay">
+        <h2>Crop Health Monitoring Dashboard</h2>
+        <p>Interactive analytics and insights from Power BI</p>
+
+        <div class="powerbi-container">
+            <iframe 
+                title="EDA ajay"
+                src="https://app.powerbi.com/view?r=eyJrIjoiMmZhZmZmM2YtOTIzNi00MzJhLTg2NmQtN2EwYmI3ZTVlYTRhIiwidCI6IjZiOGI4Mjk2LWJkZmYtNGFkOC05M2FkLTg0YmNiZjM4NDJmNSJ9&embedImagePlaceholder=true"
+                frameborder="0"
+                allowFullScreen="true">
+            </iframe>
+        </div>
+    </div>
+</section>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="nav-logo">🌱 FarmDoctor</div>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#crops">Crops</a></li>
+        <li><a href="#diseases">Diseases</a></li>
+        <li><a href="#dashboard">Dashboard</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="/detect" class="text-green-700 font-semibold">Detect</a></li>
+    </ul>
+</nav>
+
+
+</body>
+</html>
