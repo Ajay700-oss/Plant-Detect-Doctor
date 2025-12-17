@@ -206,7 +206,7 @@
 
 .about-content {
     width: 100%;
-    background: rgba(141, 117, 117, 0.75);
+    background: rgba(27, 20, 20, 0.75);
     padding: 50px 40px;
     text-align: center;
 }
@@ -323,25 +323,8 @@ html {
     transition: color 0.3s ease;
 }
 
-/* Hover underline animation */
-.nav-links li a::after {
-    content: "";
-    position: absolute;
-    width: 0%;
-    height: 2px;
-    bottom: -6px;
-    left: 0;
-    background-color: #e9dddd;
-    transition: width 0.3s ease;
-}
 
-.nav-links li a:hover::after {
-    width: 100%;
-}
 
-.nav-links li a:hover {
-    color: #e9ece9;
-}
 
 /* Detect Button */
 .detect-btn {
@@ -356,9 +339,6 @@ html {
 .detect-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 16px rgba(19, 215, 19, 0.4);
-}
-body {
-    padding-top: 70px;
 }
 
 /* Normal nav links pill effect */
@@ -566,6 +546,38 @@ body {
 }
 
 .nav-btn:hover {
-    background: #2e7d32;
+    background: #44b544;
     transform: scale(1.1);
 }
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-logo-img {
+    height: 32px;   /* adjust if needed */
+    width: auto;
+}
+
+
+.hero {
+    padding-top: 90px;   /* space below navbar */
+    min-height: 100vh;
+}
+
+
+body {
+    background: linear-gradient(
+        rgba(255, 255, 255, 0.35),
+        rgba(255, 255, 255, 0.35)
+    ),
+    url("../assets/hero.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+}
+
+

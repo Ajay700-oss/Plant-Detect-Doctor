@@ -12,7 +12,7 @@
 <section class="hero" id="home">
     <div class="hero-content">
         <h1>CROP DISEASE DETECTION SYSTEM</h1>
-        <p>Advanced AI-powered plant health analysis for better crop management</p>
+        <p>Right disease. Right pesticide. Right time.</p>
         <a href="#detect" class="hero-btn">Detect Plant Disease</a>
     </div>
 </section>
@@ -327,7 +327,10 @@ if (form) {
 
 <!-- NAVBAR -->
 <nav class="navbar">
-    <div class="nav-logo">🌱 FarmDoctor</div>
+    <div class="nav-logo">
+        <img src="{{ url_for('static', filename='assets/logo.png') }}" alt="Logo" class="nav-logo-img">
+        <span> PlantDose</span>
+    </div>
 
     <ul class="nav-links">
         <li><a href="#home">Home</a></li>
@@ -335,14 +338,10 @@ if (form) {
         <li><a href="#diseases">Diseases</a></li>
         <li><a href="#dashboard">Dashboard</a></li>
         <li><a href="#about">About</a></li>
-
-        <!-- Detect Button -->
-        <li>
-           <a href="#detect">Detect</a>
-
-        </li>
+        <li><a href="#detect">Detect</a></li>
     </ul>
 </nav>
+
 
 
 <script>
