@@ -9,17 +9,34 @@
 <body>
 
 <!-- HERO SECTION -->
+<!-- HERO SECTION -->
 <section class="hero" id="home">
+
+    <!-- BACKGROUND VIDEO -->
+    <video autoplay muted loop playsinline class="hero-video">
+        <source src="{{ url_for('static', filename='assets/hero-video.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- DARK OVERLAY -->
+    <div class="hero-overlay"></div>
+
+    <!-- CONTENT -->
     <div class="hero-content">
         <h1>CROP DISEASE DETECTION SYSTEM</h1>
         <p>Right disease. Right pesticide. Right time.</p>
         <a href="#detect" class="hero-btn">Detect Plant Disease</a>
     </div>
+
 </section>
+
 
 <!-- CROPS SECTION -->
 <!-- CROPS SECTION -->
 <section class="crops" id="crops">
+    <video class="crops-video" autoplay muted loop playsinline>
+        <source src="{{ url_for('static', filename='assets/crops-bg.mp4') }}" type="video/mp4">
+    </video>
     <div class="crops-overlay">
         <h2>Supported Crops</h2>
 
@@ -212,14 +229,32 @@ Ensure good hilling practices to prevent tuber exposure and infection.</p>
 <!-- ABOUT SECTION -->
 <!-- ABOUT SECTION -->
 <section class="about" id="about">
-    <div class="about-content">
-        <h2>About the PlantCare System</h2>
+    <div class="about-overlay">
+
+        <!-- Logo -->
+        <div class="about-logo">
+           <img src="{{ url_for('static', filename='assets/plantdose-logo.png') }}" alt="Plant Dose Logo">
+
+        </div>
+
+        <!-- Title -->
+        <h2>About the System</h2>
+
+        <!-- Description -->
         <p>
-            The PlantCare system operates as a sophisticated, dedicated AI-powered diagnostic tool engineered to provide crucial support to farmers and agricultural specialists by bridging the gap between field observation and high-tech analysis. Our core function centers on delivering rapid and accurate identification of common crop diseases. This precision is achieved through the systematic analysis of uploaded leaf images utilizing a state-of-the-art, trained Machine Learning model, most often a Convolutional Neural Network (CNN), which excels at processing visual data The model has been meticulously trained on an extensive, curated dataset encompassing thousands of images of healthy, nutrient-deficient, and pathogen-infected plant samples, allowing it to discern subtle visual patterns indicative of specific diseases like blight, rust, or mildew. Once the initial image processing successfully detects and classifies a disease, the system instantaneously triggers a secondary function: delivering a specific, targeted treatment and pesticide recommendation
+            The PlantCare system is a dedicated AI-powered diagnostic tool built to support farmers and
+            agricultural specialists. Our core function is to provide rapid and accurate identification
+            of common crop diseases by analyzing uploaded leaf images. This is achieved using a finely
+            tuned Machine Learning model trained on extensive datasets of healthy and infected plant
+            samples.Once a disease is detected, the system instantly cross-references its database to deliver
+            a specific and targeted treatment plan, including recommendations for effective pesticides
+            or organic controls. Our goal is to minimize crop loss, ensure timely intervention, and
+            promote responsible treatment practices in agriculture.
         </p>
-        
+
     </div>
 </section>
+
 
 <!-- POWER BI DASHBOARD SECTION -->
 <section class="powerbi" id="dashboard">

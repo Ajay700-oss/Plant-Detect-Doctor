@@ -6,21 +6,44 @@
 }
 
 /* ================= HERO ================= */
+/* ================= HERO (VIDEO BACKGROUND) ================= */
+
 .hero {
+    position: relative;
     height: 100vh;
-    background: linear-gradient(
-        rgba(0,0,0,0.4),
-        rgba(0,0,0,0.4)
-    ),
-    url("assets/hero.png") center/cover no-repeat;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-size: 170%;
-    background-attachment: fixed;
 }
 
+/* Background video */
+.hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+}
+
+/* Dark blur overlay */
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(3px);
+    z-index: 2;
+}
+
+/* Content on top */
 .hero-content {
+    position: relative;
+    z-index: 3;
     text-align: center;
     color: rgb(236, 218, 218);
     max-width: 800px;
@@ -48,13 +71,13 @@
 
 .hero-btn:hover {
     background: #27ae60;
-    background-size: 10%;
 }
+
 
 /* ================= CROPS SECTION ================= */
 .crops {
     min-height: 100vh;
-    background: url("assets/crops-bg.jpg") center/cover no-repeat;
+   
     position: relative;
 }
 
@@ -136,9 +159,35 @@
     margin-bottom: 6px;
 }
 
+/* ===== CROPS BACKGROUND VIDEO ===== */
+.crops {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+/* Video layer */
+.crops-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* Overlay stays exactly the same */
+.crops-overlay {
+    position: relative;
+    z-index: 1;
+}
+
+
 /* ================= DISEASE DATABASE ================= */
 .diseases {
-    min-height: 100vh;
+    min-height: 120vh;
     background: url("assets/diseases-bg.png") center/cover no-repeat;
     background-size: 100%;
     
@@ -148,26 +197,26 @@
     background: rgba(0, 0, 0, 0.45);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(9px);
-    padding: 50px 60px;
-    min-height: 100vh;
+    padding: 80px 60px;
+    min-height: 120vh;
 }
 
 
 .diseases h2 {
     text-align: center;
-    color: rgb(227, 213, 213);
+    color: rgb(237, 233, 233);
     font-size: 36px;
-    margin-bottom: 50px;
+    margin-bottom: 120px;
 }
 
 .disease-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    gap: 20px;
 }
 
 .disease-card {
-    background: rgba(255, 255, 255, 0.85);
+    background: rgba(247, 237, 237, 0.85);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     border-radius: 22px;
@@ -178,7 +227,7 @@
 }
 .disease-card:hover {
     transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 25px 60px rgba(0,0,0,0.35);
+    box-shadow: 0 25px 60px rgba(218, 8, 8, 0.35);
 }
 
 
@@ -192,38 +241,66 @@
 .disease-card p {
     font-size: 14px;
     color: #2f2f2f;
-    margin-bottom: 8px;
+    margin-bottom: 50px;
 }
-
+/* ================= ABOUT SECTION ================= */
 
 /* ================= ABOUT SECTION ================= */
+
 .about {
-    min-height: 100vh;
-    background: url("assets/about-bg.png") center/cover no-repeat;
+    min-height: 110vh;
+    background: url("assets/about-bg.jpg") center/cover no-repeat;
+    position: relative;
     display: flex;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
 }
 
-.about-content {
+/* transparent middle layer */
+.about::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);  /* change color here */
+    z-index: 1;
+}
+
+/* content layer */
+.about-overlay {
+    position: relative;
+    z-index: 2;
     width: 100%;
-    background: rgba(27, 20, 20, 0.75);
-    padding: 50px 40px;
     text-align: center;
+    padding: 0 20px;
+    margin-top: -20px;   /* 🔑 move image + text up/down */
 }
 
-.about-content h2 {
-    color: #ede9e9;
-    font-size: 32px;
-    margin-bottom: 20px;
+.about-logo {
+    display: flex;
+    justify-content: center;
 }
 
-.about-content p {
+.about-logo img {
+    width: 350px;        /* 🔑 resize image here */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.about-overlay h2 {
+    color: #fff;
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.about-overlay p {
     max-width: 900px;
-    margin: 0 auto 15px;
-    color: #f3d1d1;
+    margin: 0 auto;
+    color: #d9d9d9;
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.8;
 }
+
+
 
 /* ================= FADE ANIMATION ================= */
 .fade-section {
