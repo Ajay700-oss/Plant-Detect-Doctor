@@ -300,6 +300,11 @@
     margin-bottom: 12px;
 }
 
+.diseases {
+    background-position: center top;
+}
+
+
 /* RESPONSIVE */
 @media (max-width: 900px) {
     .disease-grid {
