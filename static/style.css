@@ -186,63 +186,128 @@
 
 
 /* ================= DISEASE DATABASE ================= */
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* BACKGROUND SECTION */
 .diseases {
-    min-height: 120vh;
-    background: url("assets/diseases-bg.png") center/cover no-repeat;
-    background-size: 100%;
-    
+    min-height: 100vh;
+    background-image: url("assets/diseases-bg.png"); /* CHECK PATH */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
+/* OVERLAY */
 .diseases-overlay {
+    min-height: 100vh;
     background: rgba(0, 0, 0, 0.45);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(9px);
     padding: 80px 60px;
-    min-height: 120vh;
 }
 
-
+/* TITLE */
 .diseases h2 {
     text-align: center;
-    color: rgb(237, 233, 233);
-    font-size: 36px;
-    margin-bottom: 120px;
+    color: #ffffff;
+    font-size: 38px;
+    margin-bottom: 70px;
 }
 
+/* GRID → THIS MAKES BOXES */
 .disease-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 1100px;
+    margin: auto;
 }
 
+/* CARD DESIGN + YOUR ANIMATION */
 .disease-card {
-    background: rgba(247, 237, 237, 0.85);
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
+    position: relative;
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 22px;
-    padding: 25px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.25);
-    transition: all 0.35s ease;
-    border: 1px solid rgba(255,255,255,0.3);
+    padding: 28px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.25);
+    cursor: pointer;
+    overflow: hidden;
+    transition: transform 0.4s ease;
 }
+
+/* hover lift */
 .disease-card:hover {
-    transform: translateY(-12px) scale(1.02);
-    box-shadow: 0 25px 60px rgba(218, 8, 8, 0.35);
+    transform: translateY(-15px);
 }
 
+/* animation layers */
+.disease-card::before,
+.disease-card::after {
+    position: absolute;
+    content: "";
+    width: 20%;
+    height: 20%;
+    background: rgba(144, 238, 144, 0.6);
+    transition: all 0.5s ease;
+    z-index: 0;
+}
 
+/* top-right curve */
+.disease-card::before {
+    top: 0;
+    right: 0;
+    border-radius: 0 22px 0 100%;
+}
 
+/* bottom-left curve */
+.disease-card::after {
+    bottom: 0;
+    left: 0;
+    border-radius: 0 100% 0 22px;
+}
+
+/* expand animation */
+.disease-card:hover::before,
+.disease-card:hover::after {
+    width: 100%;
+    height: 100%;
+    border-radius: 22px;
+}
+
+/* TEXT ABOVE ANIMATION */
+.disease-card h3,
+.disease-card p {
+    position: relative;
+    z-index: 1;
+}
+
+/* TEXT STYLE */
 .disease-card h3 {
-    margin-bottom: 12px;
-    color: #1f3a2b;
-    font-weight: bold;
+    color: #2e7d32;
+    margin-bottom: 15px;
+    font-size: 20px;
 }
 
 .disease-card p {
     font-size: 14px;
-    color: #2f2f2f;
-    margin-bottom: 50px;
+    line-height: 1.6;
+    color: #333;
+    margin-bottom: 12px;
 }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+    .disease-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
 /* ================= ABOUT SECTION ================= */
 
 /* ================= ABOUT SECTION ================= */
@@ -295,7 +360,7 @@
 .about-overlay p {
     max-width: 900px;
     margin: 0 auto;
-    color: #d9d9d9;
+    color: #d3cece;
     font-size: 15px;
     line-height: 1.8;
 }
@@ -455,19 +520,19 @@ html {
 #detect h1 {
     font-size: 36px;
     font-weight: 800;
-    color: #2e7d32;
+    color: #000000;
     text-align: center;
 }
 
 /* Subtitle */
 #detect p {
     text-align: center;
-    color: #555;
+    color: #010101;
 }
 
 /* File input */
 #detect input[type="file"] {
-    border: 2px dashed #c8e6c9;
+    border: 2px dashed #1d211d;
     padding: 14px;
     border-radius: 12px;
     cursor: pointer;
@@ -475,13 +540,13 @@ html {
 }
 
 #detect input[type="file"]:hover {
-    border-color: #2e7d32;
-    background: #f1f8f4;
+    border-color: #0b120c;
+    background: #000000;
 }
 
 /* Detect button */
 #detect button {
-    background: linear-gradient(135deg, #2e7d32, #43a047);
+    background: linear-gradient(135deg, #72db72, #bbb4b4);
     color: #fff;
     font-size: 17px;
     font-weight: 600;
@@ -499,7 +564,7 @@ html {
 /* Result box */
 #detect #result {
     margin-top: 30px;
-    background: #f9fdf9;
+    background: #e9caca;
     border-left: 6px solid #2e7d32;
     padding: 20px;
     border-radius: 14px;
@@ -514,98 +579,6 @@ html {
     color: #c62828;
     border-left: 5px solid #c62828;
     border-radius: 10px;
-}
-
-/* ================= DISEASE DATABASE CARDS ================= */
-
-.disease-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-}
-
-.disease-card {
-    background: rgba(255, 255, 255, 0.92);
-    border-radius: 16px;
-    padding: 22px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-    transition: all 0.35s ease;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Top green glow line */
-.disease-card::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, #2ecc71, #66bb6a);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-/* Hover animation */
-.disease-card:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 18px 45px rgba(46, 204, 113, 0.35);
-}
-
-/* Show glow line on hover */
-.disease-card:hover::before {
-    opacity: 1;
-}
-
-/* Text styling */
-.disease-card h3 {
-    color: #2e7d32;
-    font-size: 18px;
-    margin-bottom: 12px;
-}
-
-.disease-card p {
-    font-size: 14px;
-    color: #444;
-    line-height: 1.6;
-    margin-bottom: 6px;
-}
-
-/* Bold labels */
-.disease-card p b {
-    color: #000;
-}
-
-
-/* ================= DISEASE SLIDER ================= */
-
-.disease-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.disease-slider {
-    overflow: hidden;
-    width: 100%;
-}
-
-.disease-grid {
-    display: flex;
-    gap:35px;
-    transition: transform 0.5s ease;
-}
-
-/* Card width */
-.disease-card {
-    min-width: 360px;      /* was smaller → increase */
-    min-height: 260px;     /* makes cards taller */
-    padding: 35px;
-    font-size: 18px;
 }
 
 
@@ -658,3 +631,54 @@ body {
 }
 
 
+
+/* A temp design for button*/
+
+/* From Uiverse.io by mrhyddenn */ 
+/* Updated Hover Button – Curved Navigation Style */
+
+/* From Uiverse.io by mobinkakei */ 
+.btn {
+  width: 140px;
+  height: 50px;
+  background: linear-gradient(to top, #202115, #371212, #444f2f);
+  color: #fff;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.btn span {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: top 0.5s;
+}
+
+.btn-text-one {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.btn-text-two {
+  position: absolute;
+  width: 100%;
+  top: 150%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.btn:hover .btn-text-one {
+  top: -100%;
+}
+
+.btn:hover .btn-text-two {
+  top: 50%;
+}

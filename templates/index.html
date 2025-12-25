@@ -17,6 +17,7 @@
         <source src="{{ url_for('static', filename='assets/hero-video.mp4') }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
+     
 
     <!-- DARK OVERLAY -->
     <div class="hero-overlay"></div>
@@ -25,7 +26,20 @@
     <div class="hero-content">
         <h1>CROP DISEASE DETECTION SYSTEM</h1>
         <p>Right disease. Right pesticide. Right time.</p>
-        <a href="#detect" class="hero-btn">Detect Plant Disease</a>
+        <a href="#detect">
+            <!-- From Uiverse.io by mobinkakei --> 
+            <button class="btn">
+                   <span class="btn-text-one">Detect</span>
+                   <span class="btn-text-two">DISEASE</span>
+            </button>
+            
+        </a>
+        
+       
+     
+
+
+
     </div>
 
 </section>
@@ -160,67 +174,51 @@ Ensure good hilling practices to prevent tuber exposure and infection.</p>
 </section>
 
 <!-- PLANT DISEASES DATABASE -->
-<section class="diseases" id="diseases">
+<<section class="diseases" id="diseases">
     <div class="diseases-overlay">
+
         <h2>Plant Diseases Database</h2>
 
-        <!-- SLIDER WRAPPER -->
-        <div class="disease-wrapper">
+        <div class="disease-grid">
 
-            <!-- LEFT BUTTON -->
-            <button class="nav-btn left" onclick="scrollDisease(-1)">&#10094;</button>
-
-            <!-- SLIDER -->
-            <div class="disease-slider" id="diseaseSlider">
-                <div class="disease-grid">
-
-                    <div class="disease-card">
-                        <h3>Late Blight (Tomato)</h3>
-                        <p><b>Symptoms:</b> Dark, water-soaked spots on leaves and stems.</p>
-                        <p><b>Prevention:</b> Avoid overhead watering; ensure good air circulation.</p>
-                        <p><b>Supplements:</b> Copper fungicide, Organic neem oil.</p>
-                    </div>
-
-                    <div class="disease-card">
-                        <h3>Potato Scab (Potato)</h3>
-                        <p><b>Symptoms:</b> Rough, corky lesions on tuber surfaces.</p>
-                        <p><b>Prevention:</b> Maintain acidic soil (pH &lt; 5.2); crop rotation.</p>
-                        <p><b>Supplements:</b> Sulfur soil amendment, Acidifying fertilizers.</p>
-                    </div>
-
-                    <div class="disease-card">
-                        <h3>Common Rust (Corn)</h3>
-                        <p><b>Symptoms:</b> Reddish-orange pustules on leaf surfaces.</p>
-                        <p><b>Prevention:</b> Resistant varieties; avoid dense stands.</p>
-                        <p><b>Supplements:</b> Propiconazole fungicide, Foliar nutrients.</p>
-                    </div>
-
-                    <div class="disease-card">
-                        <h3>Leaf Rust (Wheat)</h3>
-                        <p><b>Symptoms:</b> Orange-brown pustules on leaves; yield loss possible.</p>
-                        <p><b>Prevention:</b> Resistant varieties and crop rotation.</p>
-                        <p><b>Supplements:</b> Triazole fungicides, Balanced NPK.</p>
-                    </div>
-
-                    <div class="disease-card">
-                        <h3>Apple Scab (Apple)</h3>
-                        <p><b>Symptoms:</b> Olive-green to black spots on leaves and fruit.</p>
-                        <p><b>Prevention:</b> Remove fallen leaves; prune for air circulation.</p>
-                        <p><b>Supplements:</b> Preventive copper sprays, Myclobutanil.</p>
-                    </div>
-
-                    <div class="disease-card">
-                        <h3>Downy Mildew (Grape)</h3>
-                        <p><b>Symptoms:</b> Yellow oily spots; white downy growth underside.</p>
-                        <p><b>Prevention:</b> Good canopy management; fungicide schedule.</p>
-                        <p><b>Supplements:</b> Copper-based fungicide, Organic sulfur.</p>
-                    </div>
-
-                </div>
+            <div class="disease-card">
+                <h3>Late Blight (Tomato)</h3>
+                <p><b>Symptoms:</b> Dark, water-soaked spots on leaves and stems.</p>
+                <p><b>Prevention:</b> Avoid overhead watering; ensure good air circulation.</p>
+                <p><b>Supplements:</b> Copper fungicide, Organic neem oil.</p>
             </div>
 
-            <!-- RIGHT BUTTON -->
-            <button class="nav-btn right" onclick="scrollDisease(1)">&#10095;</button>
+            <div class="disease-card">
+                <h3>Potato Scab (Potato)</h3>
+                <p><b>Symptoms:</b> Rough, corky lesions on tuber surfaces.</p>
+                <p><b>Prevention:</b> Maintain acidic soil (pH &lt; 5.2); crop rotation.</p>
+                <p><b>Supplements:</b> Sulfur soil amendment, Acidifying fertilizers.</p>
+            </div>
+
+            <div class="disease-card">
+                <h3>Common Rust (Corn)</h3>
+                <p><b>Symptoms:</b> Reddish-orange pustules on leaf surfaces.</p>
+                <p><b>Prevention:</b> Resistant varieties; avoid dense stands.</p>
+                <p><b>Supplements:</b> Propiconazole fungicide, Foliar nutrients.</p>
+            </div>
+            <div class="disease-card">
+                    <h3>Leaf Rust (Wheat)</h3>
+                    <p><b>Symptoms:</b> Orange-brown pustules on leaves; yield loss possible.</p>
+                    <p><b>Prevention:</b> Resistant varieties and crop rotation.</p>
+                    <p><b>Supplements:</b> Triazole fungicides, Balanced NPK.</p>
+            </div>
+            <div class="disease-card">
+                    <h3>Apple Scab (Apple)</h3>
+                    <p><b>Symptoms:</b> Olive-green to black spots on leaves and fruit.</p>
+                    <p><b>Prevention:</b> Remove fallen leaves; prune for air circulation.</p>                        <p><b>Supplements:</b> Preventive copper sprays, Myclobutanil.</p>
+            </div>
+
+            <div class="disease-card">
+                    <h3>Downy Mildew (Grape)</h3>
+                    <p><b>Symptoms:</b> Yellow oily spots; white downy growth underside.</p>
+                    <p><b>Prevention:</b> Good canopy management; fungicide schedule.</p>
+                    <p><b>Supplements:</b> Copper-based fungicide, Organic sulfur.</p>
+           </div>
 
         </div>
     </div>
@@ -290,7 +288,7 @@ background-attachment: fixed;
 
 
         <h1 class="text-4xl font-extrabold text-green-700 text-center mb-2">
-            🌿 FarmCheck AI
+            PlantDose
         </h1>
 
         <p class="text-center text-gray-600 mb-8">
@@ -324,6 +322,9 @@ background-attachment: fixed;
     </div>
 </div>
 </section>
+
+
+
 
 <script>
 const form = document.getElementById("uploadForm");
