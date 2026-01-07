@@ -17,7 +17,9 @@
         <source src="{{ url_for('static', filename='assets/hero-video.mp4') }}" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-     
+
+    
+
 
     <!-- DARK OVERLAY -->
     <div class="hero-overlay"></div>
@@ -33,8 +35,9 @@
                    <span class="btn-text-two">DISEASE</span>
             </button>
             
+            
         </a>
-        
+     
        
      
 
@@ -370,13 +373,112 @@ if (form) {
     </div>
 
     <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#crops">Crops</a></li>
-        <li><a href="#diseases">Diseases</a></li>
-        <li><a href="#dashboard">Dashboard</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#detect">Detect</a></li>
-    </ul>
+
+    <li><a href="/">Home</a></li>
+    <li><a href="#crops">Crops</a></li>
+    <li><a href="#diseases">Diseases</a></li>
+    <li><a href="#dashboard">Dashboard</a></li>
+    <li><a href="#about">About</a></li>
+
+    <!-- Detect button -->
+    <li>
+        <a href="#detect">Detect</a>
+    </li>
+
+    <!-- ✅ Virtual Mouse Toggle -->
+    <li class="vm-toggle">
+        <label
+          class="reduceMotionToggle st-reduceMotionToggleBtn"
+          for="reduceMotionToggle"
+          title="Virtual Mouse"
+        >
+          <input
+            class="reduceMotionToggleInput"
+            id="reduceMotionToggle"
+            type="checkbox"
+            onchange="toggleVirtualMouse(this)"
+          />
+
+          <!-- SVG (UNCHANGED – YOUR DESIGN) -->
+          <svg
+            stroke-width="0"
+            stroke="currentColor"
+            fill="currentColor"
+            viewBox="0 0 18 18"
+            height="18"
+            width="18"
+          >
+            <mask id="lineMask">
+              <rect fill="white" height="18" width="18"></rect>
+              <rect
+                fill="black"
+                style="rotate: 30deg;"
+                height="16"
+                width="4.1"
+                y="-5"
+                x="9.807"
+                class="line"
+              ></rect>
+            </mask>
+            <rect
+              style="rotate: 30deg;"
+              height="13"
+              width="1.3"
+              y="-3.3"
+              x="11.3"
+              class="line"
+            ></rect>
+            <g mask="url(#lineMask)">
+              <circle
+                style="--_toCenterXOffset: 5.76px;--_appearOffset: -.1s;"
+                fill="none"
+                stroke-width=".1"
+                r="2.95"
+                cy="9"
+                cx="3.24"
+                class="ballTrace"
+              ></circle>
+              <circle
+                style="--_toCenterXOffset: 3px;--_appearOffset: .02s;"
+                fill="none"
+                stroke-width=".2"
+                r="2.9"
+                cy="9"
+                cx="6"
+                class="ballTrace"
+              ></circle>
+              <circle
+                style="--_toCenterXOffset: 0px;--_appearOffset: .07s;"
+                fill="none"
+                stroke-width=".3"
+                r="2.8"
+                cy="9"
+                cx="9"
+                class="ballTrace"
+              ></circle>
+              <circle
+                style="--_toCenterXOffset: -2.75px;--_appearOffset: .13s;"
+                fill="none"
+                stroke-width=".4"
+                r="2.75"
+                cy="9"
+                cx="11.75"
+                class="ballTrace"
+              ></circle>
+              <circle
+                style="--_toCenterXOffset: -5.7px;"
+                r="3"
+                cy="9"
+                cx="14.7"
+                class="ball"
+              ></circle>
+            </g>
+          </svg>
+        </label>
+    </li>
+
+</ul>
+
 </nav>
 
 
@@ -403,6 +505,30 @@ function scrollDisease(direction) {
     });
 }
 </script>
+
+
+
+
+<script>
+function toggleVirtualMouse(checkbox) {
+    fetch("/toggle_mouse", { method: "POST" })
+        .then(res => res.json())
+        .then(data => {
+            if (data.status === "started") {
+                checkbox.checked = true;
+                console.log("Virtual Mouse ON");
+            } else {
+                checkbox.checked = false;
+                console.log("Virtual Mouse OFF");
+            }
+        })
+        .catch(err => {
+            console.error("Error:", err);
+            checkbox.checked = false;
+        });
+}
+</script>
+
 
 
 

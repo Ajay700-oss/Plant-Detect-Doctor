@@ -1,11 +1,12 @@
 import os
 import sys
+import subprocess
 from flask import Flask, render_template, request, jsonify
 
-# ===== FORCE PYTHON TO SEE THE MODEL FILE =====
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-MODEL_DIR = os.path.join(BASE_DIR, "SAMPLE_PLANT_DETECT")
 
+# ===== MODEL PATH =====
+MODEL_DIR = os.path.join(BASE_DIR, "SAMPLE_PLANT_DETECT")
 if MODEL_DIR not in sys.path:
     sys.path.append(MODEL_DIR)
 
@@ -17,8 +18,10 @@ from predict_service import (
 
 app = Flask(__name__)
 
-# Load model once
 load_data()
+
+# ================= VIRTUAL MOUSE PROCESS =================
+mouse_process = None
 
 @app.route("/")
 def home():
@@ -43,6 +46,21 @@ def predict():
         "confidence": confidence,
         "recommendation": recommendation
     })
+
+# ================= START / STOP VIRTUAL MOUSE =================
+@app.route("/toggle_mouse", methods=["POST"])
+def toggle_mouse():
+    global mouse_process
+
+    if mouse_process is None:
+        mouse_process = subprocess.Popen(
+            [sys.executable, "hand_control.py"]
+        )
+        return jsonify({"status": "started"})
+    else:
+        mouse_process.terminate()
+        mouse_process = None
+        return jsonify({"status": "stopped"})
 
 if __name__ == "__main__":
     app.run(debug=False)

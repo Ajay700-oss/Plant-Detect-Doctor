@@ -73,6 +73,12 @@
     background: #27ae60;
 }
 
+#mouseBtn {
+    position: relative;
+    z-index: 5;
+}
+
+
 
 /* ================= CROPS SECTION ================= */
 .crops {
