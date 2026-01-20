@@ -102,8 +102,10 @@
 /* GRID */
 .crop-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr); /* 3 cards per row */
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
 }
 
 /* ===== FLIP CARD EFFECT ===== */
@@ -113,7 +115,7 @@
 
 .flip-card-inner {
     position: relative;
-    width: 100%;
+    width: 80%;
     height: 320px;
     transform-style: preserve-3d;
     transition: transform 0.8s;
@@ -191,6 +193,19 @@
 }
 
 
+
+@media (max-width: 900px) {
+    .crop-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .crop-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* ================= DISEASE DATABASE ================= */
 
 /* RESET */
@@ -203,7 +218,7 @@
 
 /* BACKGROUND SECTION */
 .diseases {
-    min-height: 100vh;
+    min-height: 120vh;
     background-image: url("assets/diseases-bg.png"); /* CHECK PATH */
     background-position: center;
     background-repeat: no-repeat;
@@ -258,7 +273,7 @@
     content: "";
     width: 20%;
     height: 20%;
-    background: rgba(144, 238, 144, 0.6);
+    background: rgba(181, 230, 181, 0.6);
     transition: all 0.5s ease;
     z-index: 0;
 }
